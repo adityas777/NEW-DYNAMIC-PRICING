@@ -1,4 +1,4 @@
-
+DEPLOYED LINK -  https://v0-remix-of-fork-of-vercel-ai-proj-chi.vercel.app/ 
 
 ---
 Smart Dynamic Pricing Engine - Demo Guide
