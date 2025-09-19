@@ -1,14 +1,10 @@
-# Remix of Fork of Vercel AI Proj
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
-
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/anushka23102-iiitnreduis-projects/v0-remix-of-fork-of-vercel-ai-proj)
 
 ---
 Smart Dynamic Pricing Engine - Demo Guide
 🚀 Complete System Demonstration
 This guide walks you through the complete Smart Dynamic Pricing Engine system, showcasing all integrated components and their real-time capabilities.
-
+----
 📋 System Components
 1. Pathway Framework
 Real-time data stream processing
