@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server"
 import { vectorSearchClient } from "@/lib/vector-search-client"
 
+export const dynamic = "force-dynamic"
+export const revalidate = 0
+export const runtime = "nodejs"
+
 interface LiveDashboardData {
   overview: {
     total_products: number
@@ -56,7 +60,7 @@ class LiveDashboardService {
   constructor() {
     this.lastUpdate = new Date()
     this.dashboardData = this.initializeDashboardData()
-    this.startRealTimeUpdates()
+    // this.startRealTimeUpdates()
   }
 
   private initializeDashboardData(): LiveDashboardData {
@@ -364,7 +368,7 @@ export async function GET(request: Request) {
         })
 
       default:
-        // Return full dashboard data
+        await dashboardService.forceRefresh()
         const fullData = dashboardService.getDashboardData()
         return NextResponse.json(fullData)
     }

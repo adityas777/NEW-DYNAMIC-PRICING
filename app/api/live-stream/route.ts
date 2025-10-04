@@ -1,8 +1,17 @@
 import type { NextRequest } from "next/server"
 
+export const dynamic = "force-dynamic"
+export const revalidate = 0
+export const runtime = "nodejs"
+
 // Server-Sent Events endpoint for real-time dashboard updates
 export async function GET(request: NextRequest) {
   const encoder = new TextEncoder()
+
+  const proto = (request.headers.get("x-forwarded-proto") || request.headers.get("x-forwarded-protocol")) ?? "https"
+  const host =
+    request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? process.env.VERCEL_URL ?? "localhost:3000"
+  const base = `${proto}://${host}`
 
   const customReadable = new ReadableStream({
     start(controller) {
@@ -20,8 +29,7 @@ export async function GET(request: NextRequest) {
       // Send periodic updates
       const interval = setInterval(async () => {
         try {
-          // Fetch latest dashboard data
-          const dashboardResponse = await fetch(`${request.nextUrl.origin}/api/live-dashboard`)
+          const dashboardResponse = await fetch(`${base}/api/live-dashboard`, { cache: "no-store" })
           const dashboardData = await dashboardResponse.json()
 
           // Send dashboard update

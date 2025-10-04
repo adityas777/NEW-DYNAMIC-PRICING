@@ -21,8 +21,20 @@ export interface SearchResponse {
   search_time_ms: number
 }
 
+// Function to resolve server/base URL
+function getServerBaseUrl(): string {
+  // In the browser, relative paths work and must remain relative
+  if (typeof window !== "undefined") return ""
+  const vercelUrl = process.env.VERCEL_URL
+  if (vercelUrl) return `https://${vercelUrl}`
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  if (siteUrl) return siteUrl
+  return "http://localhost:3000"
+}
+
 export class VectorSearchClient {
-  private baseUrl = "/api/vector-search"
+  // Use absolute URL on server, relative in browser
+  private baseUrl = `${getServerBaseUrl()}/api/vector-search`
 
   async searchProducts(query: string, topK = 5, filters: SearchFilters = {}): Promise<SearchResponse> {
     try {
