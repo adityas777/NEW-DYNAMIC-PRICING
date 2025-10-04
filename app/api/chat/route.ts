@@ -1,6 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { generateText } from "ai"
-import { groq } from "@ai-sdk/groq"
 
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
@@ -108,7 +107,7 @@ Answer the user's question about pricing, inventory management, or related retai
 
     // Generate response using Groq
     const { text } = await generateText({
-      model: groq("llama-3.1-8b-instant"),
+      model: "groq/llama-3.1-8b-instant",
       system: systemPrompt,
       prompt: message,
       maxTokens: 500,

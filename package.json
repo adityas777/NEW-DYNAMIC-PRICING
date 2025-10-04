@@ -9,7 +9,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@ai-sdk/groq": "latest",
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "1.2.2",
     "@radix-ui/react-alert-dialog": "1.1.4",
@@ -75,5 +74,12 @@
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "overrides": {
+      "@ai-sdk/gateway": "1.0.27",
+      "@ai-sdk/provider-utils": "3.0.7",
+      "ai": "5.0.47"
+    }
   }
 }
