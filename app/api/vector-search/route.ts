@@ -1,8 +1,5 @@
 import { NextResponse } from "next/server"
 
-export const runtime = "nodejs"
-export const dynamic = "force-dynamic"
-
 // Mock vector search functionality (in production, this would interface with Python vector store)
 interface ProductSearchResult {
   product_id: string

@@ -1,9 +1,6 @@
 import type { NextRequest } from "next/server"
 import { WebSocketServer } from "ws"
 
-export const runtime = "nodejs"
-export const dynamic = "force-dynamic"
-
 // Global WebSocket server instance
 let wss: WebSocketServer | null = null
 

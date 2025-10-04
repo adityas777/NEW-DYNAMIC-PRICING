@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server"
 import type { ProductData } from "@/lib/pathway-client"
 
-export const runtime = "nodejs"
-export const dynamic = "force-dynamic"
-
 // Store for live product data
 let liveProductData: ProductData[] = []
 let lastUpdateTime = Date.now()

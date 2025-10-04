@@ -22,19 +22,11 @@ export interface SearchResponse {
 }
 
 export class VectorSearchClient {
-  private getBaseUrl(): string {
-    if (typeof window !== "undefined") {
-      return `${window.location.origin}/api/vector-search`
-    }
-    // For server-side, use environment variable or fallback
-    return process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}/api/vector-search`
-      : "http://localhost:3000/api/vector-search"
-  }
+  private baseUrl = "/api/vector-search"
 
   async searchProducts(query: string, topK = 5, filters: SearchFilters = {}): Promise<SearchResponse> {
     try {
-      const response = await fetch(this.getBaseUrl(), {
+      const response = await fetch(this.baseUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,7 +51,7 @@ export class VectorSearchClient {
 
   async getSimilarProducts(productId: string): Promise<VectorSearchResult[]> {
     try {
-      const response = await fetch(`${this.getBaseUrl()}?action=similar&product_id=${productId}`)
+      const response = await fetch(`${this.baseUrl}?action=similar&product_id=${productId}`)
 
       if (!response.ok) {
         throw new Error(`Similar products search failed: ${response.statusText}`)
@@ -75,7 +67,7 @@ export class VectorSearchClient {
 
   async getExpiringProducts(daysThreshold = 7): Promise<VectorSearchResult[]> {
     try {
-      const response = await fetch(`${this.getBaseUrl()}?action=expiring&days=${daysThreshold}`)
+      const response = await fetch(`${this.baseUrl}?action=expiring&days=${daysThreshold}`)
 
       if (!response.ok) {
         throw new Error(`Expiring products search failed: ${response.statusText}`)
@@ -91,7 +83,7 @@ export class VectorSearchClient {
 
   async getLowStockProducts(stockThreshold = 20): Promise<VectorSearchResult[]> {
     try {
-      const response = await fetch(`${this.getBaseUrl()}?action=low-stock&threshold=${stockThreshold}`)
+      const response = await fetch(`${this.baseUrl}?action=low-stock&threshold=${stockThreshold}`)
 
       if (!response.ok) {
         throw new Error(`Low stock products search failed: ${response.statusText}`)
@@ -107,7 +99,7 @@ export class VectorSearchClient {
 
   async getAnalytics(): Promise<any> {
     try {
-      const response = await fetch(`${this.getBaseUrl()}?action=analytics`)
+      const response = await fetch(`${this.baseUrl}?action=analytics`)
 
       if (!response.ok) {
         throw new Error(`Analytics request failed: ${response.statusText}`)

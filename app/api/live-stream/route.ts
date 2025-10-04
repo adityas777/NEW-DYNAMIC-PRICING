@@ -1,8 +1,5 @@
 import type { NextRequest } from "next/server"
 
-export const runtime = "nodejs"
-export const dynamic = "force-dynamic"
-
 // Server-Sent Events endpoint for real-time dashboard updates
 export async function GET(request: NextRequest) {
   const encoder = new TextEncoder()
@@ -23,10 +20,8 @@ export async function GET(request: NextRequest) {
       // Send periodic updates
       const interval = setInterval(async () => {
         try {
-          const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000"
-
           // Fetch latest dashboard data
-          const dashboardResponse = await fetch(`${baseUrl}/api/live-dashboard`)
+          const dashboardResponse = await fetch(`${request.nextUrl.origin}/api/live-dashboard`)
           const dashboardData = await dashboardResponse.json()
 
           // Send dashboard update

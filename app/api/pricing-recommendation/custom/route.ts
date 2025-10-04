@@ -1,9 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server"
 import DataStore from "@/lib/data-store"
 
-export const runtime = "nodejs"
-export const dynamic = "force-dynamic"
-
+// Add these constants at the top of the file
 // Define regions for states
 const stateRegions = {
   Punjab: "North",

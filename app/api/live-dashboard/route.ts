@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server"
 import { vectorSearchClient } from "@/lib/vector-search-client"
 
-export const runtime = "nodejs"
-export const dynamic = "force-dynamic"
-
 interface LiveDashboardData {
   overview: {
     total_products: number
@@ -97,30 +94,14 @@ class LiveDashboardService {
     try {
       console.log("[v0] Refreshing live dashboard data...")
 
-      let analytics = null
-      let expiringProducts: any[] = []
-      let lowStockProducts: any[] = []
+      // Get analytics from vector store
+      const analytics = await vectorSearchClient.getAnalytics()
 
-      try {
-        // Get analytics from vector store
-        analytics = await vectorSearchClient.getAnalytics()
-      } catch (error) {
-        console.error("[v0] Analytics request error:", error)
-      }
+      // Get expiring products
+      const expiringProducts = await vectorSearchClient.getExpiringProducts(7)
 
-      try {
-        // Get expiring products
-        expiringProducts = await vectorSearchClient.getExpiringProducts(7)
-      } catch (error) {
-        console.error("[v0] Expiring products search error:", error)
-      }
-
-      try {
-        // Get low stock products
-        lowStockProducts = await vectorSearchClient.getLowStockProducts(20)
-      } catch (error) {
-        console.error("[v0] Low stock products search error:", error)
-      }
+      // Get low stock products
+      const lowStockProducts = await vectorSearchClient.getLowStockProducts(20)
 
       // Update overview
       this.dashboardData.overview = {

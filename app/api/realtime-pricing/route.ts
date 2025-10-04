@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server"
 import type { ProductData } from "@/lib/pathway-client"
 
-export const runtime = "nodejs"
-export const dynamic = "force-dynamic"
-
 // Enhanced pricing model that integrates with live data
 interface PricingRecommendation {
   product_id: string

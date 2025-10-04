@@ -1,8 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server"
 
-export const runtime = "nodejs"
-export const dynamic = "force-dynamic"
-
 // Mock object detection API endpoint
 // In production, this would integrate with actual ML models
 export async function POST(request: NextRequest) {

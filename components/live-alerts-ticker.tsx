@@ -23,18 +23,10 @@ export default function LiveAlertsTicker() {
     const loadAlerts = async () => {
       try {
         const alertsData = await liveDashboardClient.getAlerts()
-        if (Array.isArray(alertsData)) {
-          setAlerts(alertsData.filter((alert) => alert.severity === "high" || alert.action_required))
-          setIsVisible(alertsData.length > 0)
-        } else {
-          console.warn("[v0] Alerts data is not an array:", alertsData)
-          setAlerts([])
-          setIsVisible(false)
-        }
+        setAlerts(alertsData.filter((alert) => alert.severity === "high" || alert.action_required))
+        setIsVisible(alertsData.length > 0)
       } catch (error) {
         console.error("[v0] Failed to load alerts:", error)
-        setAlerts([])
-        setIsVisible(false)
       }
     }
 
