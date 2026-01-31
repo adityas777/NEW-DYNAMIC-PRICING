@@ -1,4 +1,8 @@
 DEPLOYED LINK -  https://v0-remix-of-fork-of-vercel-ai-proj-chi.vercel.app/ 
+---
+VR STORE- https://v0.dev/chat/fork-of-vercel-ai-project-F8XVgQQB8Jo?b=b_GSQ55wSQorn&f=1#qWdEqz19r0WToTnzo4zCM6zRSEIAdvyO
+---
+YOUTUBE VIDEO - https://youtu.be/LHUvUEHrERg?si=mpT66vjKKZPkA6Z5
 
 ---
 Smart Dynamic Pricing Engine - Demo Guide
@@ -64,3 +68,4 @@ PATHWAY INTEGRATION
 
 
 The integration creates a complete real-time data pipeline: CSV inventory data flows through Pathway's streaming engine, triggers dynamic pricing calculations, and pushes updates to the frontend via WebSocket connections. The system automatically handles reconnections and provides fallback mechanisms when live data isn't available.
+
