@@ -1,9 +1,16 @@
 DEPLOYED LINK -  https://v0-remix-of-fork-of-vercel-ai-proj-chi.vercel.app/ 
+DEPLOYED LINK - https://ai.studio/apps/96e513b7-5e12-4fb2-b604-9d761e8c10c3?fullscreenApplet=true
 ---
 VR STORE- https://v0.dev/chat/fork-of-vercel-ai-project-F8XVgQQB8Jo?b=b_GSQ55wSQorn&f=1#qWdEqz19r0WToTnzo4zCM6zRSEIAdvyO
 ---
 YOUTUBE VIDEO - https://youtu.be/LHUvUEHrERg?si=mpT66vjKKZPkA6Z5
 
+---
+Images- https://drive.google.com/drive/folders/1fwXgu02CFtwEhOEYKt6xMd4_Yt_85JCh?usp=sharing
+---
+OPAL- https://opal.google/edit/1evXz2IwjVV7jkxi_pDsr5WDRLAy2ANB_
+---
+USER TESTING - https://docs.google.com/document/d/1Rr-y2QQachEOi89LafJazKhOkbIBZSNy/edit?usp=sharing&ouid=110889454979848548595&rtpof=true&sd=true
 ---
 Smart Dynamic Pricing Engine - Demo Guide
 🚀 Complete System Demonstration
